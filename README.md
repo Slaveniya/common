@@ -1,2 +1,2 @@
-# github-actions
-Contains common github actions to be requesed in another repos
+# common
+Contains common utils, tool and code to be used in another repos
