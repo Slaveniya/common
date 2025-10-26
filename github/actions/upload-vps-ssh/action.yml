@@ -7,6 +7,7 @@ runs:
   using: "composite"
   steps:
     - name: Check environment variables
+      shell: bash
       run: |
         # Confirm VPS_SSH_KEY is set
         if [ -z "${VPS_SSH_KEY:-}" ]; then
@@ -49,11 +50,13 @@ runs:
         chmod 644 ~/.ssh/known_hosts
 
     - name: Ensure remote directory exists
+      shell: bash
       run: |
         set -e
         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no "${VPS_USER}@${VPS_HOST}" "mkdir -p ${VPS_PATH}"
 
     - name: Upload files to VPS via rsync
+      shell: bash
       run: |
         set -e
         rsync -avz --delete \
