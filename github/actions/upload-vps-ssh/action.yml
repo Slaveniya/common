@@ -38,7 +38,7 @@ runs:
     - name: Load VPS_SSH_KEY into ssh-agent
       uses: webfactory/ssh-agent@v0.9.0
       with:
-        ssh-private-key: $VPS_SSH_KEY
+        ssh-private-key: ${{ env.VPS_SSH_KEY }}
 
     - name: Add VPS_HOST to known_hosts
       shell: bash
